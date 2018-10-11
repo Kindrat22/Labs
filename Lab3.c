@@ -3,13 +3,12 @@
 
 int main(void)
 {
-  double  logar, l, tng, y;
+  double  logar, l, tng, y, e;
   double x = 0.1;
   double sn = 0;
-  double se = 0;
-  double e = 1;
 for(int k = 0; k < 10; k++)
     {
+        double se = 0;
       l = (1 + x) / (1 - x);
       tng = (atan(x)/2);
       logar = log(l);
@@ -19,11 +18,14 @@ for(int k = 0; k < 10; k++)
           sn += pow(x, 4*n+1)/ (4*n + 1);
           n++;
        }
-      while(e >= 0.0001){
-          double g = 1;
+      while(se <= 0.0001){
+        for(int ch = 0; ch < 3; ch++){
+
+        double g = 1;
           e = pow(x, 4 * g + 1)/ (4*g + 1);
           se += e;
-          k++;
+            g++;
+             }
         }
 
       x +=0.07;
