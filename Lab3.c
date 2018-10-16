@@ -6,10 +6,10 @@ int main(void)
   double  logar, l, tng, y, e;
   double x = 0.1;
   double sn = 0;
-  e = 1;
+  int h;
 for(int k = 0; k < 10; k++)
     {
-        double se = 0;
+      double se = 0;
       l = (1 + x) / (1 - x);
       tng = (atan(x)/2);
       logar = log(l);
@@ -19,15 +19,13 @@ for(int k = 0; k < 10; k++)
           sn += pow(x, 4*n+1)/ (4*n + 1);
           n++;
        }
+        e = 1;
+        h = 0;
       while(e > 0.0001){
-        for(int ch = 0; ch < 3; ch++){
-    
-          e = pow(x, 4 * ch + 1)/ (4*ch + 1);
+          e = pow(x, 4 * h + 1)/ (4*h + 1);
           se += e;
-            
-             }
+          h++;
         }
-
       printf("x = %f,   SN =%F   SE =%f   y = %f \n", x, sn, se, y );
       x +=0.07;
     }
